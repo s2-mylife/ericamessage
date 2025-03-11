@@ -1,0 +1,112 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-image: url(./images/background.gif);
+  background-size: 100% 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  align-items: center;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+#backgroundMessage {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#messageBox {
+  width: calc(80% - 40px);
+  padding: 130px 20px;
+  background-color: rgba(255, 255, 255, 0.363);
+  margin: auto;
+  border: 1px solid rgb(206, 206, 206);
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  opacity: 0;
+  animation: fadeIn 6s ease-in-out forwards, slideUp 6s ease-in-out forwards;
+  pointer-events: none;
+  /* Não interage enquanto o coração está visível */
+  visibility: hidden;
+  /* Inicialmente invisível */
+}
+
+.messageBoxVisible {
+  visibility: visible !important;
+  /* Torna a mensagem visível após o clique */
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(30px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+#heartOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./images/heart.gif') no-repeat center center;
+  background-size: contain;
+  cursor: pointer;
+  z-index: 10;
+  transition: opacity 1s ease-out;
+}
+
+#heartBackground {
+  background-color: rgb(81 67 67 / 90%);
+  width: 100%;
+  height: 100%;
+  display: table;
+  position: absolute;
+  z-index: 2;
+}
